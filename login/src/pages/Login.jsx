@@ -9,6 +9,20 @@ const Login = () => {
 
     const navigate = useNavigate();
 
+    const handleLogin = () => {
+        const validEmail = localStorage.getItem('validEmail');
+        const validPassword = localStorage.getItem('validPassword');
+
+        if (email === validEmail && password === validPassword) {
+            setErrorMessage('');
+            alert('Login realizado com sucesso !');
+            setEmail('');
+            setPassword('');
+        } else {
+            setErrorMessage('Email ou senha incorretos.')
+        }
+    }
+
     const handleButtonBack = () => {
         navigate('/register');
     }
@@ -22,15 +36,15 @@ const Login = () => {
                             Login
                         </span>
                         <div className='wrap-input-email-login'>
-                            <input className="input" type="email" placeholder="Email" />
+                            <input className="input" type="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                             <span className="focus-input"></span>
                         </div>
                         <div className='wrap-input-password-login'>
-                            <input className="input" type="password" placeholder="Password" />
+                            <input className="input" type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                             <span className="focus-input"></span>
                         </div>
                         <div className="container-login-form-btn">
-                            <button className="login-form-btn">
+                            <button className="login-form-btn" onClick={handleLogin}>
                                 Login
                             </button>
                         </div>
@@ -39,6 +53,7 @@ const Login = () => {
                                 Cadastrar
                             </button>
                         </div>
+                        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                     </form>
                 </div>
             </div>
