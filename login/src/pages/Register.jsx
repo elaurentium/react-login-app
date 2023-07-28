@@ -26,7 +26,8 @@ const Register = () => {
     }
 
     const validatePassword = (password) => {
-        return password.length >= 6 && !/\s/.test(email);
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]+$/;
+        return password.length >= 6 && !/\s/.test(email) && passwordRegex.test(password);
     }
 
     const handleChangePassword = (e) => {
