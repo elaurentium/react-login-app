@@ -1,9 +1,18 @@
 import React from "react";
+import '../styles/styles-profile.css';
 
 const Profile = () => {
+
+    const emailSaved = localStorage.getItem('validEmail')
+
+
     return (
-        <div>
-            <h1>Profile</h1>
+        <div className="container">
+            <div className="header-wrap">
+                <header className="header">
+                    <span className="email-header">{emailSaved}</span>
+                </header>
+            </div>
         </div>
     )
 }
