@@ -5,7 +5,7 @@
 <ul>
   <li>Cadastro, Login & Profile</li>
   <li>Mensagem de erro</li>
-  <li>Não pode usar espaço no login e senha</li>
+  <li>tratamento no login e senha</li>
   <li>Verifica se o email cadastrado bate com o email logado</li>
   <li>Verifica se o email cadastrado segue as normas para criar um email</li>
 </ul>
