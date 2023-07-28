@@ -18,6 +18,7 @@ const Login = () => {
             alert('Login realizado com sucesso !');
             setEmail('');
             setPassword('');
+            navigate('/profile');
         } else {
             setErrorMessage('Email ou senha incorretos.')
         }
