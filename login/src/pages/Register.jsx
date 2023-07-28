@@ -26,8 +26,8 @@ const Register = () => {
     }
 
     const validatePassword = (password) => {
-        const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]+$/;
-        return password.length >= 6 && !/\s/.test(email) && regex.test(password);
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]+$/;
+        return password.length >= 6 && !/\s/.test(email) && passwordRegex.test(password);
     }
 
     const handleChangePassword = (e) => {
@@ -41,6 +41,8 @@ const Register = () => {
             setErrorMessage('Digite um email válido !');
         } else if (!validatePassword(password)) {
             setErrorMessage('A senha deve conter pelo menos 6 digitos e não pode ter espaços');
+            alert(`Senha deve começar com letra maiúscula e conter algum caractere especial,
+            além de ter no minimo 6 digitos e não conter espaços`);
         } else {
             handleRegister();
             setErrorMessage('');
